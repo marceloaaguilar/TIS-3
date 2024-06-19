@@ -29,7 +29,7 @@ const LoginCreate: React.FC = () => {
 
     axios({
       method: 'post',
-      url: 'http://localhost:8080/auth/signup',
+      url: `${import.meta.env.VITE_API_BASE_URL}/auth/signup`,
       withCredentials: false,
       data: {
         email: email.value,

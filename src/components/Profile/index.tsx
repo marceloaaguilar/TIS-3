@@ -19,7 +19,7 @@ const EditarPerfil = () => {
     const userData = localStorage.getItem("login");
     if(typeof userData == 'string'){
       const data = JSON.parse(userData);
-      axios.get("http://localhost:8080/client/getAll").then((response) => {
+      axios.get(`${import.meta.env.VITE_API_BASE_URL}/client/getAll`).then((response) => {
         Object.values(response.data).forEach((e:any) => {
           if (e.email == data.email) {
             setIdUsr(e.id);
@@ -57,7 +57,7 @@ const EditarPerfil = () => {
 
     axios({
       method: 'put',
-      url: "http://localhost:8080/client/update?id=" + idUsr,
+      url: `${import.meta.env.VITE_API_BASE_URL}/client/update?id=` + idUsr,
       data: {
         name: data.get("nome"),
         email: data.get("email"),

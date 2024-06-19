@@ -57,7 +57,7 @@ const NewClient = () => {
         });
         return;
       }
-      const response = await axios.post('http://localhost:8080/client/create', {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/client/create`, {
         name: nomeUsr,
         email: emailUsr,
         password: passwordUsr,

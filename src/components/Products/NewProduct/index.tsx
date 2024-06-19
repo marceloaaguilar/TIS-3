@@ -69,7 +69,7 @@ const NewProduct = () => {
     formData.append('file', image);
 
     try {
-      await axios.post('http://localhost:8080/product/create', formData, {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/product/create`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

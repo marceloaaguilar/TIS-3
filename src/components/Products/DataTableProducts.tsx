@@ -39,7 +39,7 @@ export default function DataTableProducts() {
   useEffect(()=>{
     axios({
       method: 'get',
-      url: 'http://localhost:8080/product/list',
+      url: `${import.meta.env.VITE_API_BASE_URL}/product/list`,
     }).then((response) => {
       if(response.data){
         setData(response.data);

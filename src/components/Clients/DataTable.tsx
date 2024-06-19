@@ -27,7 +27,7 @@ export default function DataTable() {
               selectedIDs.forEach((e) => {
                 axios({
                   method: 'delete',
-                  url: "http://localhost:8080/client/delete?id=" + e,
+                  url: `${import.meta.env.VITE_API_BASE_URL}/client/delete?id=` + e,
                 })
               })
 
@@ -45,7 +45,7 @@ export default function DataTable() {
   useEffect(() => {
     axios({
       method: 'get',
-      url: 'http://localhost:8080/client/getAll',
+      url: `${import.meta.env.VITE_API_BASE_URL}/client/getAll`,
     }).then((response) => {
       if (response.data) {
         setData(response.data);

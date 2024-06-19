@@ -21,7 +21,7 @@ const LoginForm = () => {
     
       axios({
       method: 'post',
-      url: 'http://localhost:8080/auth/signin',
+      url: `${import.meta.env.VITE_API_BASE_URL}/auth/signin`,
       withCredentials: false,
       data: {
         email: email.value,
