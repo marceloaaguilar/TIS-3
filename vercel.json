@@ -5,7 +5,6 @@
  
       "headers": [
         { 
-          "key": "Access-Control-Allow-Origin", "value": "*",
             "Access-Control-Allow-Origin": "https://tis-3.vercel.app"
           }
       ]
