@@ -17,7 +17,6 @@ import { CatalogProducts } from "../../interfaces/CatalogProducts";
 import { CartProducts } from "../../interfaces/CartProducts";
 import { Product } from "../../interfaces/Product";
 import Swal from 'sweetalert2';
-import WhatsappBtn from "../WhatsappBtn";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import "./catalog.css";
 
@@ -26,7 +25,7 @@ const Catalogo = () => {
   const [catalogProducts, setCatalogProducts] = useState<CatalogProducts>([]);
   const [cartProducts, setCartProducts] = useState<CartProducts>([]);
   const navigate = useNavigate();
-  const [quantity, setQuantity] = useState(1);
+  const [quantity] = useState(1);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/product/list`).then((res) => {
