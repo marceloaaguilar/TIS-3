@@ -28,7 +28,7 @@ const Catalogo = () => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}/product/list`, {withCredentials: true}).then((res) => {
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/product/list`).then((res) => {
       setCatalogProducts(res.data);
       var cartData = localStorage.getItem('cart');
       if (cartData != undefined)
