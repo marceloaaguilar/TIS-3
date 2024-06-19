@@ -10,7 +10,7 @@
           ]
         },
         {
-          "source": "/vercel_app_domain_name/(.*)",
+          "source": "https://tis-3.vercel.app/(.*)",
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" }
           ]
