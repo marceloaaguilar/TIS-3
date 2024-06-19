@@ -17,8 +17,9 @@ import { CatalogProducts } from "../../interfaces/CatalogProducts";
 import { CartProducts } from "../../interfaces/CartProducts";
 import { Product } from "../../interfaces/Product";
 import Swal from 'sweetalert2';
-import { TextField } from "@mui/material";
 import WhatsappBtn from "../WhatsappBtn";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import "./catalog.css";
 
 
 const Catalogo = () => {
@@ -56,8 +57,11 @@ const Catalogo = () => {
     })
     
     const productPrice = quantity * product.price;
-    if (productExist === 'N')
-      setCartProducts([...cartProducts, {product: product, quantity: quantity, total: productPrice}])
+    if (productExist === 'N'){
+      setCartProducts([...cartProducts, {product: product, quantity: 1, total: productPrice}])
+      Swal.fire("Produto adicionado ao carrinho!");
+
+    }
   } 
   
   const redirect = () => {
@@ -75,17 +79,16 @@ const Catalogo = () => {
           {catalogProducts.map((product) => {
             return (
               <Card key={product.id} style={{ width: "25rem" }} className="m-3">
-                <Card.Img variant="top" src={'data:image/png;base64,' + product.image} style={{height: '100%', objectFit: 'cover'}}/>
-                <Card.Body>
-                  <Card.Title>{product.name}</Card.Title>
-                  <Card.Text>
-                    <b>Preço:</b> R$ {product.price} <br/> <b>Peso:</b> {product.weight}g
-                  </Card.Text>
-                  <div style={{display: 'flex', gap:'1rem'}}>
-                    <TextField inputProps={{ type: 'number', defaultValue: 1, label: 'Quantidade'}} onChange={()=> setQuantity(quantity + 1)} value={quantity}/>
-                    <Button variant="primary" onClick={() => processaCarrinho(product, quantity)}>
-                      Adicionar ao carrinho
-                    </Button>
+                <Card.Img variant="top" src={'data:image/png;base64,' + product.image} style={{backgroundColor: '#FAFAFA',height: '20rem',  padding: '2rem', objectFit: 'cover'}}/>
+                <Card.Body style={{display: "flex", justifyContent: "space-between", padding: '2rem'}}>
+                  <div>
+                    <Card.Title>{product.name}</Card.Title>
+                    <Card.Text>
+                      <b>Preço:</b> R$ {product.price} <br/> <b>Peso:</b> {product.weight}g
+                    </Card.Text>
+                  </div>
+                  <div style={{display: 'flex', justifyContent: 'end'}}>
+                    <AddShoppingCartIcon id="btn-carrinho" style={{backgroundColor: "#1976D2", cursor: "pointer", fontSize: '5rem', color: "white", padding: '0.5rem', borderRadius: '30px'}} onClick={() => processaCarrinho(product, quantity)}/>
                   </div>
                 </Card.Body>
               </Card>
