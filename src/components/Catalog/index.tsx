@@ -72,13 +72,12 @@ const Catalogo = () => {
 
   return (
     <div style={{height: '100vh'}}>
-      <WhatsappBtn/>
       <Container style={{marginTop: '6rem', marginBottom: '1rem'}}>
         <h2 style={{fontSize: '2.5rem', marginBottom: '2rem'}}>Confira o catálogo de produtos</h2>
         <Row>
           {catalogProducts.map((product) => {
             return (
-              <Card key={product.id} style={{ width: "25rem" }} className="m-3">
+              <Card key={product.id} style={{ width: "25rem", zIndex: '0'}} className="m-3">
                 <Card.Img variant="top" src={'data:image/png;base64,' + product.image} style={{backgroundColor: '#FAFAFA',height: '20rem',  padding: '2rem', objectFit: 'cover'}}/>
                 <Card.Body style={{display: "flex", justifyContent: "space-between", padding: '2rem'}}>
                   <div>
