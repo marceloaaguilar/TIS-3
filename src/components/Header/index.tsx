@@ -10,17 +10,18 @@ function Header() {
       <Toolbar>
         <Box sx={{ flexGrow: 1 }}>
           <Button color="inherit" component={Link} to="/">
-            Bolo no Pote
+            <img style={{width: '9rem', margin: '1rem'}}src="logo.png"/>
           </Button>
         </Box>
         <Box>
           {auth ? (
             <div>
-              <Button color="inherit" component={Link} to="/meuspedidos">Meus Pedidos</Button>
-              <Button color="inherit" component={Link} to="/meuperfil">Meu Perfil</Button>
+              <Button color="inherit" style={{fontSize: '1.2rem'}} component={Link} to="/catalogo">Catálogo</Button>
+              <Button color="inherit" style={{fontSize: '1.2rem'}} component={Link} to="/meuspedidos">Meus Pedidos</Button>
+              <Button color="inherit" style={{fontSize: '1.2rem'}}  component={Link} to="/meuperfil">Meu Perfil</Button>
             </div>
           ) : (
-            <Button color="inherit" component={Link} to="/login">Login</Button>
+            <Button color="inherit" style={{fontSize: '1.2rem'}}  component={Link} to="/login">Login</Button>
           )}
         </Box>
 

@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import axios from "axios";
 import Snackbar from '@mui/material/Snackbar';
+import WhatsappBtn from "../WhatsappBtn";
 
 const EditarPerfil = () => {
   const [idUsr, setIdUsr] = useState('');
@@ -74,6 +75,7 @@ const EditarPerfil = () => {
 
   return (
     <Container maxWidth="lg">
+      <WhatsappBtn/>
       <Snackbar
         open={open}
         autoHideDuration={3000}

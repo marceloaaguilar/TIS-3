@@ -15,12 +15,13 @@ import Swal from 'sweetalert2';
 import { Pedidos } from "../../interfaces/Pedidos";
 import { Pedido } from "../../interfaces/Pedido";
 import useWebSocket from "react-use-websocket";
+import WhatsappBtn from "../WhatsappBtn";
 
 export default function Orders() {
   const [userId, setUser] = useState(0);
   const [pedidos, setPedidos] = useState<Pedidos>([]);
 
-  useWebSocket("ws://localhost:8080/websocket", {
+  useWebSocket(`ws://${import.meta.env.VITE_API_BASE_URL}/websocket`, {
     onMessage: (event) => {
       const updatedOrder: Pedido = JSON.parse(event.data);
       const ordersWithoutUpdatedOrder: Pedido[] = pedidos.filter(function (order: Pedido) {
@@ -175,6 +176,7 @@ export default function Orders() {
 
   return (
     <Container maxWidth="lg" className="mt-5">
+      <WhatsappBtn/>
       <Typography style={{ fontSize: '3rem', fontWeight: 400 }}>Meus pedidos</Typography>
       <Divider />
       <TableContainer>

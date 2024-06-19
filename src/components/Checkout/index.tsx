@@ -17,6 +17,7 @@ import { ProductPedido } from "../../interfaces/ProductPedido";
 import { initMercadoPago, Payment } from '@mercadopago/sdk-react';
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import WhatsappBtn from "../WhatsappBtn";
 
 
 
@@ -76,6 +77,7 @@ export default function Checkout() {
 
   return (
     <Container maxWidth="md" className="mt-5">
+      <WhatsappBtn/>
       <div style={{ display: mostraCheckout }}>
         <Typography style={{ fontSize: '3rem', fontWeight: 400 }}>Finalizar pedido</Typography>
         <Divider />
